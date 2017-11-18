@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+
+import sys
+from time import localtime, strftime
+
+def print_usage_message():
+    print("mindfool \"this is a message to append\"")
+
+def append_to_log(content):
+    file = open("/home/jess/mindfool.log", "a")
+    file.write(content)
+    file.close()
+
+is_execution_valid = len(sys.argv) == 2
+if not is_execution_valid:
+    print("Invalid execution!")
+    print_usage_message()
+else:
+    message = str(sys.argv[1])
+    timestamp = "TIMESTAMP: " + strftime("%a, %d %b %Y %X +0000", localtime())
+    to_append = timestamp + "\n" + message + "\n"
+    append_to_log(to_append)

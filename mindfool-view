@@ -1,0 +1,4 @@
+#!/usr/bin/python3
+
+with open("/home/jess/mindfool.log", "r") as file:
+     print(file.read(), end="")
